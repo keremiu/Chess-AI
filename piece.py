@@ -31,7 +31,11 @@ def check(self, fromCoor, toCoor, board):
         return False
     if (self.type == 1):
         if (np.abs(toCoor[0] - fromCoor[0]) == 1 | np.abs(toCoor[1] - fromCoor[1]) == 1):
-            return invernalCheck(self, fromCoor, toCoor, board, cross=((np.abs(toCoor[0] - fromCoor[0]) == 1 & (np.abs(toCoor[1] - fromCoor[1]) == 1))), straight=xor(((np.abs(toCoor[0] - fromCoor[0]) == 1), (np.abs(toCoor[1] - fromCoor[1]) == 1))))
+            return invernalCheck(self, fromCoor, toCoor, board, cross=True, straight=True)
+        else:
+            return False
+    elif (self.type == 2):
+        if (np.abs(toCoor[0] - fromCoor[0]) == np.abs(toCoor[1] - fromCoor[1]))
     pass
 
 def invernalCheck(self, fromCoor, toCoor, board, cross=False, straight=False):
@@ -45,6 +49,8 @@ def invernalCheck(self, fromCoor, toCoor, board, cross=False, straight=False):
             crossCheck(self, fromCoor, toCoor, board)
         if (cross == False & straight):
             straightCheck(self, fromCoor, toCoor, board)
+        if (cross == False & straight == False): # that means the piece is knight
+            #knightCheck()
             pass
 
 def crossCheck(self, fromCoor, toCoor, board):
@@ -97,4 +103,8 @@ def oneWayStraightCheck(self, fromCoor, toCoor, board, way=1):
         return oneWayStraightCheck(self, fromCoor=(fromCoor[0] - 1, fromCoor[1]), toCoor=toCoor, board=board, way=way)
     if (way == 4): # -90 degree
         return oneWayStraightCheck(self, fromCoor=(fromCoor[0], fromCoor[1] + 1), toCoor=toCoor, board=board, way=way)
+    pass
+
+def knightCheck(self, fromCoor, toCoor, board):
+    
     pass
