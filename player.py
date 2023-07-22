@@ -10,5 +10,5 @@ def move(self, fromCoor, toCoor):
     toPic = self.board[toCoor[0], toCoor[1]]
     if (fromPic == 0):
         return "No piece selected"
-    fromPic.check(fromCoor, toCoor, toPic)
+    fromPic.check(fromCoor, toCoor, self.board)
     pass
