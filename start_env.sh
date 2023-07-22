@@ -1,0 +1,1 @@
+source Chess_env/Scripts/activate
