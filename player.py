@@ -1,4 +1,4 @@
-import piece as pic
+from piece import Piece
 
 def __init__(self, board, white=False):
     self.board = board
