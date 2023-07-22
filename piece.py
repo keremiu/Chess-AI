@@ -2,11 +2,13 @@ import numpy as np
 from operator import xor
 
 class Piece:
-    def __init__(self, typeName, white = False):
-        self.white = white
+    def __init__(self, typeName=None, white=None):
         self.typeName = typeName
-        self.defType()
-        pass
+        if typeName != "none":
+            self.white = white
+            self.defType()
+        else:
+            self.white = None
 
     def defType(self):
         if (self.typeName == "king"):
@@ -27,6 +29,9 @@ class Piece:
         elif (self.typeName == "pawn"):
             self.type = 6
             self.score = 1
+        elif (self.typeName == "None"): # boş yerlere göstermek için
+            self.type = 0
+            self.score = 0
 
     def check(self, fromCoor, toCoor, board):
         if ((fromCoor[0] <= 7 & fromCoor[0] >= 0 & fromCoor[1] <= 7 & fromCoor[1] >= 0 & toCoor[0] <= 7 & toCoor[0] >= 0 & toCoor[1] <= 7 & toCoor[1] >= 0) == False):
