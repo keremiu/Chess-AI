@@ -1,15 +1,16 @@
 import numpy as np
-import piece as pic
+from piece import Piece
 
-def __init__(self):
-    self.board = np.zeros((8, 8))
-    self.start()
-    pass
+class Game:
+    def __init__(self):
+        self.board = np.zeros((8, 8), dtype=Piece)
+        self.start()
+        pass
 
-def start(self):
-    self.board[0] = np.array({pic(True, "rook"), pic(True, "knight"), pic(True, "bishop"), pic(True, "queen"), pic(True, "king"), pic(True, "bishop"), pic(True, "knight"), pic(True, "rook")})
-    self.board[1] = np.array({pic(True, "pawn"), pic(True, "pawn"), pic(True, "pawn"), pic(True, "pawn"), pic(True, "pawn"), pic(True, "pawn"), pic(True, "pawn"), pic(True, "pawn")})
-    self.board[6] = np.array({pic(False, "pawn"), pic(False, "pawn"), pic(False, "pawn"), pic(False, "pawn"), pic(False, "pawn"), pic(False, "pawn"), pic(False, "pawn"), pic(False, "pawn")})
-    self.board[7] = np.array({pic("rook"), pic("knight"), pic("bishop"), pic("queen"), pic("king"), pic("bishop"), pic("knight"), pic("rook")})
-    pass
+    def start(self):
+        self.board[0] = np.array([Piece(True, "rook"), Piece(True, "knight"), Piece(True, "bishop"), Piece(True, "queen"), Piece(True, "king"), Piece(True, "bishop"), Piece(True, "knight"), Piece(True, "rook")])
+        self.board[1] = np.array([Piece(True, "pawn"), Piece(True, "pawn"), Piece(True, "pawn"), Piece(True, "pawn"), Piece(True, "pawn"), Piece(True, "pawn"), Piece(True, "pawn"), Piece(True, "pawn")])
+        self.board[6] = np.array([Piece(False, "pawn"), Piece(False, "pawn"), Piece(False, "pawn"), Piece(False, "pawn"), Piece(False, "pawn"), Piece(False, "pawn"), Piece(False, "pawn"), Piece(False, "pawn")])
+        self.board[7] = np.array([Piece(False, "rook"), Piece(False, "knight"), Piece(False, "bishop"), Piece(False, "queen"), Piece(False, "king"), Piece(False, "bishop"), Piece(False, "knight"), Piece(False, "rook")])
+        pass
 
